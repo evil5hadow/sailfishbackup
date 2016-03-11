@@ -40,7 +40,7 @@ echo "Done"
 function RestoreAppsFiles {
 echo "Restoring apps files"
 cd /home/nemo/mybackup
-tar -xpf filesapps.tar -C /home/nemo/.local/share/.
+tar -xpf appsfiles.tar -C /home/nemo/.local/share/.
 echo "Done"
 }
 
