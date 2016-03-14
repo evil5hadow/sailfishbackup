@@ -46,14 +46,9 @@ This will generate a file called **fullbackup.tar** with all your files. Copy th
 - Run as **nemo** Restore.sh:
 > $ ./Restore.sh
 
-- Run as **root ** DisableSlowRepos.sh:
-> \# ./DisableSlowRepos.sh
-
 - Run as **root ** Reinstall.sh (this may take a bit):
 > \# ./Reinstall.sh
 
-- Run as **root ** Reinstall.sh (this may take a bit):
-> \# ./EnableSlowRepos.sh
 
 - Run restore utility from settings.
 
