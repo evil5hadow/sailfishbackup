@@ -17,7 +17,7 @@
 #     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 function ShowLicense {
-echo "sailfishbackup  Copyright (C) 2016  J. Pablo Navarro \n This program comes with ABSOLUTELY NO WARRANTY; for details look on license file. \n     This is free software, and you are welcome to redistribute it \n under certain conditions; look on license file for details.\n"
+echo "sailfishbackup  Copyright (C) 2016  J. Pablo Navarro. This program comes with ABSOLUTELY NO WARRANTY; for details look on license file. This is free software, and you are welcome to redistribute it under certain conditions; look on license file for details."
 }
 
 function AddRepos {
@@ -25,13 +25,14 @@ echo "Adding repos..."
 cd /home/nemo/mybackup
 zypper ar -f http://sailfish.openrepos.net/$(cat repolist)/personal-main.repo
 zypper refresh
-echo "Done"
+echo "    Done"
 }
 
 function ReinstallApps {
 echo "Reinstalling apps..."
+cd /home/nemo/mybackup
 zypper install $(cat mypackages)
-echo "Done"
+echo "    Done"
 }
 
 

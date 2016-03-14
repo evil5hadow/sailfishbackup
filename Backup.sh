@@ -17,7 +17,7 @@
 #     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 function ShowLicense {
-echo "sailfishbackup  Copyright (C) 2016  J. Pablo Navarro \n This program comes with ABSOLUTELY NO WARRANTY; for details look on license file. \n     This is free software, and you are welcome to redistribute it \n under certain conditions; look on license file for details.\n"
+echo "sailfishbackup  Copyright (C) 2016  J. Pablo Navarro. This program comes with ABSOLUTELY NO WARRANTY; for details look on license file. This is free software, and you are welcome to redistribute it under certain conditions; look on license file for details."
 }
 
 # Create backup folder
@@ -25,7 +25,7 @@ function CreateBackupFolder {
   echo "Creating a backup folder"
   cd /home/nemo
   mkdir mybackup
-  echo "Done."
+  echo "    Done"
 }
 
 # Create a list with packages installed from Openrepos
@@ -33,11 +33,15 @@ function CreateInstalledList {
   echo "Creating a installed packages list..."
   cd /home/nemo/mybackup
   zypper pa | grep "i |" | awk '{print $5}' > mypackages
-  echo "Done"
+  echo "    Done"
 }
 
 function CreateRepoList {
-zypper lr | grep "openrepos" | tr "-" " " | awk '{print $7}' > repolist
+  echo "Creating repo list..."
+  cd /home/nemo/mybackup
+  zypper lr | grep "openrepos" | tr "-" " " | awk '{print $7}' > repolist
+  echo "    Done"
+
 }
 
 # Tar apps files. I know not all of them starts by "harbour-"
@@ -47,7 +51,7 @@ function TarAppsFiles {
   cd /home/nemo/.local/share
   tar -cf appsfiles.tar harbour-*
   mv appsfiles.tar /home/nemo/mybackup
-  echo "Done"
+  echo "    Done"
 }
 
 function TarVault {
@@ -55,21 +59,21 @@ function TarVault {
   cd /home/nemo/
   tar -cf vault.tar .vault
   mv vault.tar mybackup
-  echo "Done"
+  echo "    Done"
 }
 
 function CreateFullBackup {
   echo "Creating full backup..."
   cd /home/nemo/
   tar -cf fullbackup.tar mypackages appsfiles.tar vault.tar
-  echo "Done: fullbackup.tar created."
+  echo "    Done: fullbackup.tar created."
 }
 
 function Clean {
   echo "Cleaning..."
   cd /home/nemo/
   rm -r mybackup
-  echo "Done"
+  echo "    Done"
 }
 
 

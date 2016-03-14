@@ -25,7 +25,7 @@ function UnTarBackup {
 echo "Untaring the file..."
 cd /home/nemo
 tar -xf fullbackup.tar
-echo "Done"
+echo "    Done"
 }
 
 # Restore vault
@@ -33,7 +33,7 @@ function RestoreVault {
 echo "Restoring vault..."
 cd /home/nemo/mybackup
 tar -xpf vault.tar -C ..
-echo "Done"
+echo "    Done"
 }
 
 # Restore appsfile
@@ -41,7 +41,7 @@ function RestoreAppsFiles {
 echo "Restoring apps files"
 cd /home/nemo/mybackup
 tar -xpf appsfiles.tar -C /home/nemo/.local/share/.
-echo "Done"
+echo "    Done"
 }
 
 
