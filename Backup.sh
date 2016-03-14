@@ -65,7 +65,7 @@ function TarVault {
 function CreateFullBackup {
   echo "Creating full backup..."
   cd /home/nemo/
-  tar -cf fullbackup.tar mypackages appsfiles.tar vault.tar
+  tar -cf fullbackup.tar mypackages repolist appsfiles.tar vault.tar
   echo "    Done: fullbackup.tar created."
 }
 
@@ -82,6 +82,7 @@ function Clean {
 ShowLicense
 CreateBackupFolder
 CreateInstalledList
+CreateRepoList
 TarAppsFiles
 TarVault
 CreateFullBackup
