@@ -23,7 +23,9 @@ echo "sailfishbackup  Copyright (C) 2016  J. Pablo Navarro. This program comes w
 function AddRepos {
 echo "Adding repos..."
 cd /home/nemo/mybackup
-zypper ar -f http://sailfish.openrepos.net/$(cat repolist)/personal-main.repo
+for repo in $(cat repolist);do
+zypper ar -f http://sailfish.openrepos.net/$repo/personal-main.repo
+done
 zypper refresh
 echo "    Done"
 }
@@ -44,5 +46,6 @@ ReinstallApps
 
 
 echo "Do not forget run EnableSlowRepos.sh"
+echo "Press any key to quit."
 read
 
