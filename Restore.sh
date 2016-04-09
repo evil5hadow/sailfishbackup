@@ -24,7 +24,8 @@ echo "sailfishbackup  Copyright (C) 2016  J. Pablo Navarro \n This program comes
 function UnTarBackup {
 echo "Untaring the file..."
 cd /home/nemo
-tar -xf fullbackup.tar
+mkdir mybackup
+tar -xf fullbackup.tar -C mybackup
 echo "    Done"
 }
 
