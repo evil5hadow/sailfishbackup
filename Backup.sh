@@ -32,7 +32,7 @@ function CreateBackupFolder {
 function CreateInstalledList {
   echo "Creating a installed packages list..."
   cd /home/nemo/mybackup
-  zypper pa | grep "i |" | awk '{print $5}' > mypackages
+  zypper pa | grep "i |" | tr " " ";" | tr "|" " " | awk '{print $3}' |tr -d ";" > mypackages
   echo "    Done"
 }
 
@@ -64,8 +64,9 @@ function TarVault {
 
 function CreateFullBackup {
   echo "Creating full backup..."
-  cd /home/nemo/
+  cd /home/nemo/mybackup
   tar -cf fullbackup.tar mypackages repolist appsfiles.tar vault.tar
+  mv fullbackup.tar ..
   echo "    Done: fullbackup.tar created."
 }
 
