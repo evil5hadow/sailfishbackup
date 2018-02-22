@@ -20,8 +20,14 @@ function ShowLicense {
 echo "sailfishbackup  Copyright (C) 2016  J. Pablo Navarro. This program comes with ABSOLUTELY NO WARRANTY; for details look on license file. This is free software, and you are welcome to redistribute it under certain conditions; look on license file for details."
 }
 
+function CheckRoot
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root"
+   exit 1
+fi
 
 ShowLicense
+CheckRoot
 echo "Disabling slow repos..."
 prefix="/etc/zypp/repos.d"
 mv $prefix/ssu_adaptation0_release.repo $prefix/ssu_adaptation0_release.repo.bk
